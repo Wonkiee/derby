@@ -264,8 +264,21 @@ public class SlaveController
         teardownNetwork();
 
         logToFile.stopReplicationSlaveRole();
+        new Exception(dbname);
 
         Monitor.logTextMessage(MessageId.REPLICATION_SLAVE_STOPPED, dbname);
+        /*
+        String url = conn.getMetaData().getURL();
+            char[] dbName = url.toCharArray();
+            String DB = "";
+            int i = 28;
+            while( dbName[i] != ';' ){
+					DB = DB.concat( String.valueOf(dbName[i]) );
+					i++;
+			}
+		 DB = "DataBase name: " + DB;
+		 Monitor.logTextMessage(MessageId.REPLICATION_SLAVE_STOPPED, DB);
+        */
     }
 
     /**
